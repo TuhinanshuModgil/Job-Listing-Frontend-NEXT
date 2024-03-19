@@ -30,7 +30,7 @@ async function getJobData() {
 
 export default function Home() {
 
-  const [jobsData, setJobsData] = useState()
+  const [jobsData, setJobsData] = useState(null)
   
   // let data = await getJobData() 
   // const handleRefresh =async  ()=>{
@@ -72,7 +72,7 @@ export default function Home() {
       {jobsData?jobsData.data.map((jobData)=>(
         <div key={jobData._id}>
 
-          <JobCard jabData={jobData}/>
+          <JobCard jobData={jobData}/>
         </div>
       )):<></>}
       
