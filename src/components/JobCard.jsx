@@ -1,3 +1,9 @@
+
+// ----------------Read Me-------------------
+// Description: This is the card that will be desplayed at the main page
+// this will display all the informations about the job
+// It also expands into a modal when clicked and has the required apply button
+
 // 'use client'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'

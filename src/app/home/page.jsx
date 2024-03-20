@@ -1,3 +1,7 @@
+// ----------------Read Me-------------------
+// Just added as a little easter egg to all the unfinished parts  :)
+
+
 import React from 'react'
 import Image from 'next/image'
 

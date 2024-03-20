@@ -1,3 +1,8 @@
+// ----------------Read Me-------------------
+// Description: This is the job card that is used in the admin dashboard 
+// it has additional functionalities like edit and delete the job
+
+
 // 'use client'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
@@ -8,6 +13,8 @@ import { AiOutlineEdit } from 'react-icons/ai'
 import { BsInfoCircle } from 'react-icons/bs'
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 
+
+// Function to make a DELETE request to our server
 const deleteData = async (jobID) => {
   try {
     const response = await fetch(`http://localhost:5000/jobs/${jobID}`, {
@@ -60,7 +67,7 @@ function JobCard({ jobData , setRefresh}) {
         <Image src="/CompanyLogo.jpg" width={60} height={60} className='rounded-full' alt='Comapny logo' />
         <div className='flex flex-1 justify-end gap-3'>
 
-
+          {/* This will lead us to the edit page that is setted up dynamically using the card ID */}
           <Link href={`/admin/${cardId}`}>
             <AiOutlineEdit className='text-2xl  text-green-700' />
           </Link>

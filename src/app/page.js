@@ -1,3 +1,7 @@
+// ----------------Read Me-------------------
+// This is the main page of our application that has the hero section and the job card
+// all cards are rendered dynamically with data from the backend
+
 'use client'
 import Image from "next/image";
 import SearchBar from "../components/SearchBar";
@@ -5,14 +9,13 @@ import JobCard from "../components/JobCard";
 
 import { useState,useEffect } from "react";
 
-
+// Function that GETs the data from the backend
 async function getJobData() {
 
   try {
     
     const res = await fetch('http://localhost:5000/jobs')
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
+    
  
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
@@ -37,6 +40,8 @@ export default function Home() {
   //   data = await getJobData() 
   // }
 
+
+  // This will load the job data when the component mounts
   useEffect(()=>{
     const setJobData =   async ()=>{
       try {
@@ -69,6 +74,7 @@ export default function Home() {
       
       <div className="p-6 grid sm:grid-cols-3 gap-3 ">
 
+      {/* Generating Job cards dynamically */}
       {jobsData?jobsData.data.map((jobData)=>(
         <div key={jobData._id}>
 

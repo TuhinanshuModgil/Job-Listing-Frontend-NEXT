@@ -1,3 +1,7 @@
+// ----------------Read Me-------------------
+// Description: Search Bar component
+
+
 "use client";
 import React, { useState } from 'react';
 

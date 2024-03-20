@@ -1,3 +1,9 @@
+// ----------------Read Me-------------------
+// This is the part which makes the layout of the page with different compoaents around it 
+// like navbar and footer in this case
+
+
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";

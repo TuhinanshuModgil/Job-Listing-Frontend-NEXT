@@ -1,3 +1,7 @@
+// Description: This is just a basic footer component 
+// we can add links to various pages of our websites when we make them 
+
+
 import React from 'react'
 import Link from 'next/link'
 

@@ -1,3 +1,6 @@
+// ----------------Read Me-------------------
+// Decription: A Navbar that can lead to various pages and the admin dashboard
+
 // "use client"
 import React from 'react'
 import Link from 'next/link';

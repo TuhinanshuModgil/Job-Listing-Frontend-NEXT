@@ -1,3 +1,7 @@
+// ----------------Read Me-------------------
+// Description: This is the modal that will show the full description of the job 
+// it will also have the action of " Apply Now"
+
 import React from 'react';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 import { ImCross } from "react-icons/im";
