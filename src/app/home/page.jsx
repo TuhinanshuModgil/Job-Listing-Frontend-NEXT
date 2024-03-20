@@ -6,7 +6,7 @@ function page() {
     <div className='flex h-screen '>
      
 
-     <div className="bg-cover bg-center h-full w-full  " style={{ backgroundImage: "url('./codingInProgress.jpg')" }} >
+     <div className="bg-cover bg-center h-full w-full  " style={{ backgroundImage: "url('./codingInProgress.svg')" }} >
      <h1 className='text-5xl text-center my-16 text-white font-bold '>Coding In Progress</h1>
      </div>
       {/* <Image src="/codingInProgress.jpg" width={400} height={900}  /> */}

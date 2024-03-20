@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import SearchBar from "../components/SearchBar.jsx";
+import SearchBar from "../components/SearchBar";
 import JobCard from "../components/JobCard";
 
 import { useState,useEffect } from "react";
