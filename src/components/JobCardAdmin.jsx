@@ -24,20 +24,21 @@ const deleteData = async (jobID) => {
   }
 };
 
-function JobCard({ jobData }) {
+function JobCard({ jobData , setRefresh}) {
 
   const [cardId, setCardID] = useState(null)
   const router = useRouter();
 
   // Function to trigger a page rerender
-  const triggerRerender = () => {
-    // Reload the current route
-    router.refresh();
-  };
+  // const triggerRerender = () => {
+  //   // Reload the current route
+  //   router.refresh();
+  // };
 
   const handleDelete = (cardId) => {
     deleteData(cardId).then(()=>{
-      triggerRerender()
+      // triggerRerender()
+      setRefresh(prev=> prev+1)
     }
     )
     .catch((e)=>{

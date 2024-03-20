@@ -15,7 +15,7 @@ const SearchBar = () => {
 
   return (
     <div className="flex items-center justify-center rounded-full w-[900px]">
-      <div className="flex items-center border justify-between border-gray-300 rounded-full w-full shadow-md">
+      <div className="flex items-center border justify-between border-gray-300 rounded-full w-full shadow-md min-w-[100px]">
         <input
           type="text"
           placeholder="Search... (Not yet hooked)"

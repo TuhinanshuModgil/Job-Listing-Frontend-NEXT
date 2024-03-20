@@ -1,7 +1,9 @@
 'use client'
 import JobCardAdmin from '../../components/JobCardAdmin'
 import SearchBar from '../../components/SearchBar'
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
+import Link from 'next/link'
+
 import { MdOutlineAddBox } from 'react-icons/md'
 
 
@@ -29,10 +31,12 @@ async function getJobData() {
 function page() {
 
   const [jobsData, setJobsData] = useState(null)
+  const [refresh, setRefresh] = useState(1)
 
   const handleAddJob = ()=>{
 
   }
+
 
   useEffect(()=>{
     const setJobData =   async ()=>{
@@ -48,7 +52,11 @@ function page() {
     }
     setJobData()
 
-  },[])
+  },[refresh])
+
+  useEffect(()=>{
+    console.log("reloaded Page")
+  },[refresh])
 
 
   return (
@@ -57,21 +65,22 @@ function page() {
       <div className='p-5 flex justify-center gap-5'>
       
       <SearchBar />
-      
+      <Link href={`/admin/addjobs`}>
       <button
           onClick={handleAddJob}
           className="bg-black/70 text-white py-2 px-4 m-1 rounded-full hover:bg-black/80 focus:outline-none flex justify-center items-center gap-2"
-        >
+          >
           Add Job <MdOutlineAddBox/>
         </button>
+          </Link>
       </div>  
 
-      <div className="p-6 flex flex-wrap gap-3 w-[1200px] justify-between">
+      <div className="p-6 grid sm:grid-cols-3 gap-3 w-[1200px] justify-between">
 
       {jobsData?jobsData.data.map((jobData)=>(
         <div key={jobData._id}>
 
-          <JobCardAdmin jobData={jobData}/>
+          <JobCardAdmin jobData={jobData} setRefresh={setRefresh}/>
         </div>
       )):<></>}
       

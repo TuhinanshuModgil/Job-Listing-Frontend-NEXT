@@ -1,11 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 
-const postData = async (data,cardID) => {
+const postData = async (data) => {
     try {
   
-      const response = await fetch(`http://localhost:5000/jobs/${cardID}`, {
-        method: 'PUT',
+      const response = await fetch(`http://localhost:5000/jobs`, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -13,41 +13,18 @@ const postData = async (data,cardID) => {
       });
   
       if (response.ok) {
-        console.log('PUT request successful');
+        console.log('POST request successful');
       } else {
-        console.error('PUT request failed');
+        console.error('POST request failed');
       }
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
-async function getJobData(jobID) {
 
-    try {
-      
-      const res = await fetch(`http://localhost:5000/jobs/${jobID}`)
-      // The return value is *not* serialized
-      // You can return Date, Map, Set, etc.
-   
-      if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
-      }
-   
-      return res.json()
-  
-    } catch (error) {
-      console.log(error.message)
-    }
-    
-  }
+function page() {
 
-
-
-function page({ params }) {
-
-    const cardID = params.editID
     const [role, setRole] = useState('');
     const [description, setDescription] = useState('');
     const [company, setCompany] = useState('');
@@ -64,41 +41,13 @@ function page({ params }) {
         }
         console.log(newData)
 
-        postData(newData, cardID)
-    }
-
-
-    useEffect(()=>{
-    const getJobsDetails =  ()=>{
-        getJobData(cardID)
-        .then(
-            (res)=>{
-                const data  = res 
-                console.log("This is card data", data)
-                if(data){
-                setRole(prev => data.role)
-                setDescription(prev => data.description)
-                setCompany(prev => data.company)
-                setStipend(prev => data.stipend)
-                setLocation(prev => data.location)
-                }
-                
-            }
-        )
-        .catch((e)=>{
-            console.log(e.message)
-        })
-
-        
+        postData(newData)
 
 
     }
 
-    getJobsDetails()
-    },[])
-    
 
-    return (
+  return (
     <div>
         <div className='p-6 flex flex-col'>
       {/* Inputs for each variable */}
@@ -158,11 +107,9 @@ function page({ params }) {
       <p>Location: {location}</p> */}
       </div>
     </div>
-        My Post: {params.editID}
+        
     </div>
-    )
+  )
 }
 
 export default page
-
-

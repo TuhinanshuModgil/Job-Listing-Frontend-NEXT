@@ -67,7 +67,7 @@ export default function Home() {
       <SearchBar/>
       
       
-      <div className="p-6 flex flex-wrap gap-3 w-[1200px] justify-between">
+      <div className="p-6 grid sm:grid-cols-3 gap-3 ">
 
       {jobsData?jobsData.data.map((jobData)=>(
         <div key={jobData._id}>
