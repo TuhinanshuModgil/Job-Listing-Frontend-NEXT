@@ -1,17 +1,24 @@
+// ----------------Read Me-------------------
+// This is the page that allows the edit to the website
+// It loads the data of the particular job listing from the backend
+// It provides the option to change any field of that Job listing
+
 'use client'
 import React, { useEffect, useState } from 'react'
 
+
+// Function to PUT the edited Job listing in the database
 const postData = async (data,cardID) => {
-    try {
-  
-      const response = await fetch(`http://localhost:5000/jobs/${cardID}`, {
+  try {
+    
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/jobs/${cardID}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
-  
+      
       if (response.ok) {
         console.log('PUT request successful');
       } else {
@@ -21,14 +28,15 @@ const postData = async (data,cardID) => {
       console.error('Error:', error);
     }
   };
-
-async function getJobData(jobID) {
-
+  
+  
+  // Function to GET the data of the individual Job listing from database
+  async function getJobData(jobID) {
+    
     try {
       
-      const res = await fetch(`http://localhost:5000/jobs/${jobID}`)
-      // The return value is *not* serialized
-      // You can return Date, Map, Set, etc.
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/jobs/${jobID}`)
+      
    
       if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
@@ -54,6 +62,7 @@ function page({ params }) {
     const [stipend, setStipend] = useState('');
     const [location, setLocation] = useState('');
 
+    // Makes the put request with the edited data
     const handleSubmit = ()=>{
         const newData = {
             role,
@@ -67,7 +76,7 @@ function page({ params }) {
         postData(newData, cardID)
     }
 
-
+    // loads the Job listing data when the component is mounted
     useEffect(()=>{
     const getJobsDetails =  ()=>{
         getJobData(cardID)

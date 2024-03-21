@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 const postData = async (data) => {
     try {
   
-      const response = await fetch(`http://localhost:5000/jobs`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/jobs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -3,6 +3,8 @@
 // all cards are rendered dynamically with data from the backend
 
 'use client'
+// import 'dotenv/config'
+
 import Image from "next/image";
 import SearchBar from "../components/SearchBar";
 import JobCard from "../components/JobCard";
@@ -13,8 +15,8 @@ import { useState,useEffect } from "react";
 async function getJobData() {
 
   try {
-    
-    const res = await fetch('http://localhost:5000/jobs')
+    console.log("This is the .env return", process.env.NEXT_PUBLIC_SERVER_ADDRESS)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/jobs`)
     
  
     if (!res.ok) {

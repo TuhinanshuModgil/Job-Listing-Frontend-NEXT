@@ -1,3 +1,9 @@
+// ----------------Read Me-------------------
+// This is the main page for the admin dashboard
+// It will provide access to all the added job listings with the option to edit and delete 
+// It also has the option to add new job postings
+
+
 'use client'
 import JobCardAdmin from '../../components/JobCardAdmin'
 import SearchBar from '../../components/SearchBar'
@@ -6,12 +12,12 @@ import Link from 'next/link'
 
 import { MdOutlineAddBox } from 'react-icons/md'
 
-
+// Function to GET the job data from the database
 async function getJobData() {
 
   try {
     
-    const res = await fetch('http://localhost:5000/jobs')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/jobs`)
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
  
@@ -27,6 +33,7 @@ async function getJobData() {
   }
   
 }
+
 
 function page() {
 

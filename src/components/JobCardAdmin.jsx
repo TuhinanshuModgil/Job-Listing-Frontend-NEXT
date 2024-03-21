@@ -17,7 +17,7 @@ import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 // Function to make a DELETE request to our server
 const deleteData = async (jobID) => {
   try {
-    const response = await fetch(`http://localhost:5000/jobs/${jobID}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/jobs/${jobID}`, {
       method: 'DELETE',
     });
 

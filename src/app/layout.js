@@ -3,6 +3,7 @@
 // like navbar and footer in this case
 
 
+// import 'dotenv/config'
 
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -11,6 +12,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
+
+// console.log("This is also PROCESS.env", process.env)
 
 export const metadata = {
   title: "Create Next App",
