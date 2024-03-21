@@ -35,7 +35,7 @@ async function getJobData() {
 }
 
 
-function page() {
+function Page() {
 
   const [jobsData, setJobsData] = useState(null)
   const [refresh, setRefresh] = useState(1)
@@ -98,4 +98,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

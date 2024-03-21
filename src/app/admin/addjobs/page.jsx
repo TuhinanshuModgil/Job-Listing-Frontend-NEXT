@@ -23,7 +23,7 @@ const postData = async (data) => {
   };
 
 
-function page() {
+function Page() {
 
     const [role, setRole] = useState('');
     const [description, setDescription] = useState('');
@@ -112,4 +112,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

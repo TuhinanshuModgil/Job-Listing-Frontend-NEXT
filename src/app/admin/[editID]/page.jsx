@@ -53,7 +53,7 @@ const postData = async (data,cardID) => {
 
 
 
-function page({ params }) {
+function Page({ params }) {
 
     const cardID = params.editID
     const [role, setRole] = useState('');
@@ -172,6 +172,6 @@ function page({ params }) {
     )
 }
 
-export default page
+export default Page
 
 
